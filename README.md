@@ -131,16 +131,108 @@ To run this project, the following Python libraries are required:
 
 ### Chi-Square Test:
 - A significant statistical association exists between `Contract Type` and churn, making it a strong predictor.
+  
+---
+# Churn Prediction Model Evaluation
 
-## Conclusion
-This project successfully demonstrated the application of machine learning techniques, including Random Forest, Logistic Regression, AdaBoost, Gradient Boosting, and SVM, to predict customer churn. 
+## Overview
+This repository evaluates various machine learning models on a classification dataset to predict customer churn. The models include Decision Tree, SVM, KNN, Naive Bayes, Random Forest, AdaBoost, and Gradient Boosting. The analysis focuses on identifying the best-performing model based on accuracy, precision, recall, F1-score, and ROC-AUC.
 
-- **Best Model:** Logistic Regression was the most accurate and performed best in terms of F1-score and recall. This model is recommended for predicting customer churn in this dataset.
-- **Model Comparison:** While Logistic Regression outperformed the other models overall, Random Forest, AdaBoost, and Gradient Boosting showed promising results and could be further improved through hyperparameter tuning and feature engineering.
-- **Feature Insights:** TotalCharges, MonthlyCharges, and Tenure are key predictors of churn, as identified by the Random Forest model. These features should be considered for targeted interventions aimed at reducing churn.
+---
+
+## Results and Model Evaluation
+
+### Selected Features for Prediction
+- `tenure`, `OnlineSecurity`, `TechSupport`, `Contract`, `MonthlyCharges`
+
+### Model Performance Summary
+| Model              | Accuracy | F1-Score | Precision | Recall | ROC-AUC |
+|--------------------|----------|----------|-----------|--------|---------|
+| Random Forest      | 0.8469   | 0.8543   | 0.8250    | 0.8856 | 0.9235  |
+| AdaBoost           | 0.8097   | 0.8220   | 0.7811    | 0.8675 | 0.8935  |
+| Gradient Boosting  | 0.8444   | 0.8484   | 0.8408    | 0.8561 | 0.9281  |
 
 
+### Decision Tree
+- **Training Accuracy**: 0.9987  
+- **Test Accuracy**: 0.8005  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.81    | 0.79    | 0.80      | 0.80         |
+  | Recall      | 0.78    | 0.82    | 0.80      | 0.80         |
+  | F1-Score    | 0.79    | 0.81    | 0.80      | 0.80         |
 
+### Support Vector Machine (SVM)
+- **Training Accuracy**: 0.8492  
+- **Test Accuracy**: 0.8333  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.83    | 0.84    | 0.83      | 0.83         |
+  | Recall      | 0.83    | 0.84    | 0.83      | 0.83         |
+  | F1-Score    | 0.83    | 0.84    | 0.83      | 0.83         |
+
+### K-Nearest Neighbors (KNN)
+- **Training Accuracy**: 0.8595  
+- **Test Accuracy**: 0.7976  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.84    | 0.77    | 0.80      | 0.80         |
+  | Recall      | 0.73    | 0.86    | 0.80      | 0.80         |
+  | F1-Score    | 0.78    | 0.81    | 0.80      | 0.80         |
+
+### Naive Bayes
+- **Training Accuracy**: 0.7838  
+- **Test Accuracy**: 0.7870  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.81    | 0.77    | 0.79      | 0.79         |
+  | Recall      | 0.75    | 0.82    | 0.79      | 0.79         |
+  | F1-Score    | 0.78    | 0.80    | 0.79      | 0.79         |
+
+### Random Forest
+- **Best Parameters**: `{'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 5, 'n_estimators': 200}`
+- **Training Accuracy**: 0.8948  
+- **Test Accuracy**: 0.8469  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.87    | 0.83    | 0.85      | 0.85         |
+  | Recall      | 0.81    | 0.89    | 0.85      | 0.85         |
+  | F1-Score    | 0.84    | 0.85    | 0.85      | 0.85         |
+
+### AdaBoost
+- **Training Accuracy**: 0.7993  
+- **Test Accuracy**: 0.8097  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.85    | 0.78    | 0.81      | 0.81         |
+  | Recall      | 0.75    | 0.87    | 0.81      | 0.81         |
+  | F1-Score    | 0.80    | 0.82    | 0.81      | 0.81         |
+
+### Gradient Boosting
+- **Training Accuracy**: 0.8924  
+- **Test Accuracy**: 0.8444  
+- **Classification Report**:  
+  | Metric      | Class 0 | Class 1 | Macro Avg | Weighted Avg |
+  |-------------|---------|---------|-----------|--------------|
+  | Precision   | 0.85    | 0.84    | 0.84      | 0.84         |
+  | Recall      | 0.83    | 0.86    | 0.84      | 0.84         |
+  | F1-Score    | 0.84    | 0.85    | 0.84      | 0.84         |
+
+---
+
+## Final Conclusion
+- **Random Forest** is the most robust model, achieving the highest accuracy (0.847), balanced precision-recall, and a superior ROC-AUC (0.9235).  
+- **AdaBoost** and **Gradient Boosting** also performed well, but slightly below Random Forest in generalization ability.  
+- **Decision Tree** exhibited overfitting with high training accuracy but lower test accuracy.  
+- SVM, KNN, and Naive Bayes demonstrated acceptable performance but were outperformed by ensemble models.
+
+----
 
 ### Deliverables
 - **Jupyter Notebook**: [CustomerChurnCapstoneFinal](https://github.com/jsathyan3245/CapstoneProject20.1/blob/main/CustomerChurnCapstone.ipynb)
